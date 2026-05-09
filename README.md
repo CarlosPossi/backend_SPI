@@ -213,10 +213,29 @@ Exemplo de JSON:
 ```json
 {
   "id": 1,
-  "nome": "Carlos Augusto",
-  "email": "carlos@email.com",
-  "cargo": "Analista de Sistemas",
-  "setor": "Tecnologia"
+  "nome": "João da Silva",
+  "idade": 35,
+  "cpf": "123.456.789-00",
+  "dataContrato": "2024-05-10",
+  "nrs": [
+    "NR-6",
+    "NR-17",
+    "NR-35"
+  ],
+  "asos": [
+    "ASO Admissional",
+    "ASO Periódico"
+  ],
+  "sexo": "Masculino",
+  "postura": {
+    "id": 2
+  },
+  "sessaoTrabalho": {
+    "id": 1
+  },
+  "risco": {
+    "id": 3
+  }
 }
 ```
 
@@ -228,11 +247,13 @@ Exemplo de JSON:
 
 ```json
 {
-  "id": 1,
-  "nome": "Linha de Produção A",
-  "localizacao": "Bloco 1",
   "temperatura": 26.5,
-  "nivelRuido": 75
+  "ruido": 78.2,
+  "luminosidade": 450.0,
+  "presencaMaquina": true,
+  "indicadorSeguranca": {
+    "id": 1
+  }
 }
 ```
 
@@ -244,10 +265,8 @@ Exemplo de JSON:
 
 ```json
 {
-  "id": 1,
-  "tipo": "Uso de EPI",
-  "status": "ATIVO",
-  "descricao": "Monitoramento do uso correto de equipamentos de proteção"
+  "usoCorretoEpi": true,
+  "taxaIncidente": 2.5
 }
 ```
 
@@ -259,10 +278,8 @@ Exemplo de JSON:
 
 ```json
 {
-  "id": 1,
-  "colaboradorId": 2,
-  "tipoPostura": "Inadequada",
-  "descricao": "Coluna inclinada por longo período"
+  "angulo": 45.0,
+  "classificacaoRiscoErgonomico": "Médio"
 }
 ```
 
@@ -274,10 +291,14 @@ Exemplo de JSON:
 
 ```json
 {
-  "id": 1,
-  "tipo": "Temperatura Elevada",
-  "nivel": "ALTO",
-  "descricao": "Ambiente acima do limite recomendado"
+  "comportamento": "Seguro",
+  "usoEpi": "Completo",
+  "historico": [
+    "Treinamento realizado",
+    "Advertência registrada",
+    "Avaliação positiva"
+  ],
+  "documentacaoEmDia": true
 }
 ```
 
@@ -289,11 +310,14 @@ Exemplo de JSON:
 
 ```json
 {
-  "id": 1,
-  "colaboradorId": 2,
-  "inicio": "2026-05-08T08:00:00",
-  "fim": "2026-05-08T17:00:00",
-  "status": "FINALIZADA"
+  "inicioTrabalho": "08:00:00",
+  "fimTrabalho": "17:30:00",
+  "tarefas": [
+    "Inspeção de equipamentos",
+    "Preenchimento de relatórios",
+    "Organização do ambiente de trabalho",
+    "Monitoramento de segurança"
+  ]
 }
 ```
 ---
