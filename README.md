@@ -46,65 +46,72 @@ Além disso, o projeto utiliza persistência de dados com JPA/Hibernate e comuni
 
 Representa os colaboradores cadastrados no sistema.
 
-* Endpoint base:
+Endpoint base: 
+> /colaboradores
 
-```
-/colaboradores
-```
 <br>
 
 🔹 **Ambiente**
 
 Representa os ambientes monitorados.
 
-* Endpoint base:
+Endpoint base: 
+> /ambientes
 
-```
-/ambientes
-```
 <br>
 
 🔹 **IndicadorSeguranca**
 
 Representa indicadores relacionados à segurança.
 
-* Endpoint base:
-```
-/indicadores
-```
+Endpoint base: 
+> /indicadores
+
 <br>
 
 🔹 **Postura**
 
 Representa informações relacionadas à postura dos colaboradores.
 
-* Endpoint base:
+Endpoint base: 
+> /posturas
 
-```
-/posturas
-```
 <br>
 
 🔹 **Risco**
 
 Representa riscos identificados no ambiente.
 
-* Endpoint base:
+Endpoint base: 
+> /riscos
 
-```
-/riscos
-```
 <br>
 
 🔹 **SessaoTrabalho**
 
 Representa sessões ou períodos de trabalho monitorados.
 
-* Endpoint base:
+Endpoint base:
+> /sessoes
 
-```
-/sessoes
-```
+<br>
+
+🔹 **Alerta**
+
+Representa alertas gerados no sistema, como o uso incorreto de EPIs.
+
+Endpoint base: 
+> /alertas
+
+<br>
+
+🔹 **Monitoramento**
+
+Representa registros de monitoramento, com hora e valor medido.
+
+Endpoint base: 
+> /monitoramentos
+
 ---
 
 <br>
@@ -198,6 +205,34 @@ Gerencia sessões de trabalho monitoradas pelo sistema.
 | POST | `/sessoes` | Cria uma nova sessão |
 | PUT | `/sessoes/{id}` | Atualiza uma sessão |
 | DELETE | `/sessoes/{id}` | Remove uma sessão |
+
+<br>
+
+**🔹 Alertas**
+
+Responsável pelo gerenciamento dos alertas gerados no sistema.
+
+| Método | Endpoint | Descrição |
+|---|---|---|
+| GET | `/alertas` | Lista todos os alertas |
+| GET | `/alertas/{id}` | Retorna um alerta específico |
+| POST | `/alertas` | Cria um novo alerta |
+| PUT | `/alertas/{id}` | Atualiza um alerta |
+| DELETE | `/alertas/{id}` | Remove um alerta |
+
+<br>
+
+**🔹 Monitoramentos**
+
+Responsável pelo controle dos registros de monitoramento.
+
+| Método | Endpoint | Descrição |
+|---|---|---|
+| GET | `/monitoramentos` | Lista todos os monitoramentos |
+| GET | `/monitoramentos/{id}` | Retorna um monitoramento específico |
+| POST | `/monitoramentos` | Cria um novo monitoramento |
+| PUT | `/monitoramentos/{id}` | Atualiza um monitoramento |
+| DELETE | `/monitoramentos/{id}` | Remove um monitoramento |
 
 ---
 
@@ -320,12 +355,39 @@ Exemplo de JSON:
   ]
 }
 ```
+
+<br>
+
+***🔹 Alerta***
+
+Exemplo de JSON:
+
+```json
+{
+  "titulo": "Uso incorreto de EPI",
+  "descricao": "Colaborador identificado sem capacete na área de risco",
+  "usoCorretoEPI": false
+}
+```
+
+<br>
+
+***🔹 Monitoramento***
+
+Exemplo de JSON:
+
+```json
+{
+  "hora": "14:30:00",
+  "valor": 78.5
+}
+```
 ---
 <br>
 
 ## **▶️ Como Rodar o Projeto**
 
-* ✅ Pré-requisitos
+✅ Pré-requisitos
 
 Antes de iniciar o projeto, você precisará ter instalado:
 
@@ -339,23 +401,24 @@ Antes de iniciar o projeto, você precisará ter instalado:
 
 ---
 
-* 📥 Clonando o Repositório
+📥 Clonando o Repositório
 > git clone https://github.com/CarlosPossi/backend_SPI.git
 
 ---
 
-* 📂 Entrando na Pasta do Projeto
+📂 Entrando na Pasta do Projeto
 > cd backend_SPI
 
 ---
 
-* ▶️ Executando o Projeto
+▶️ Executando o Projeto
 <br>
 
 ```
 -> Windows
 mvnw.cmd spring-boot:run
 ```
+
 ```
 -> Linux / Mac**
 ./mvnw spring-boot:run
@@ -363,9 +426,17 @@ mvnw.cmd spring-boot:run
 
 ---
 
-* 🌐 Acessando a API
+🌐 Acessando a API
 Após iniciar o projeto:
 >http://localhost:8080
+
+---
+
+🗄️ Banco de Dados
+O projeto utiliza um banco H2 em arquivo, persistido na pasta `data/` do repositório.
+> Console H2: http://localhost:8080/h2-console
+><br>
+> JDBC URL: `jdbc:h2:file:./data/SPI`
 
 ---
 
@@ -384,6 +455,7 @@ src/main
  ├── model
  <br>
  └── resources
+ <br>
  
 
  <br>
