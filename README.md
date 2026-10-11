@@ -6,6 +6,16 @@
 </div>
 
 
+> **Sprint 4 — Entrega final.** Esta API é consumida pelo app Expo do projeto.
+> O **README principal** (passo a passo completo, `BASE_URL`, fluxo tela → serviço → endpoint e demonstração com o backend parado) está no repositório do frontend:
+> 👉 https://github.com/CarlosPossi/sistema-SPI-Integracao
+
+| Item | Link |
+|---|---|
+| Backend (este repositório) | https://github.com/CarlosPossi/backend_SPI |
+| Frontend (app Expo) | https://github.com/CarlosPossi/sistema-SPI-Integracao |
+| Vídeo da Sprint 4 (YouTube, não listado) |  |
+
 ## 📌 Descrição da API
 
 O Backend SPI é uma API REST desenvolvida em Java utilizando Spring Boot com foco em monitoramento de segurança, ergonomia e condições de trabalho dentro de ambientes corporativos ou industriais.
@@ -65,7 +75,7 @@ Endpoint base:
 Representa indicadores relacionados à segurança.
 
 Endpoint base: 
-> /indicadores
+> /indicadoresseguranca
 
 <br>
 
@@ -92,7 +102,7 @@ Endpoint base:
 Representa sessões ou períodos de trabalho monitorados.
 
 Endpoint base:
-> /sessoes
+> /sessaodetrabalho
 
 <br>
 
@@ -158,11 +168,11 @@ Responsável pelos indicadores de segurança ocupacional.
 
 | Método | Endpoint | Descrição |
 |---|---|---|
-| GET | `/indicadores` | Lista todos os indicadores |
-| GET | `/indicadores/{id}` | Retorna um indicador específico |
-| POST | `/indicadores` | Cria um novo indicador |
-| PUT | `/indicadores/{id}` | Atualiza um indicador |
-| DELETE | `/indicadores/{id}` | Remove um indicador |
+| GET | `/indicadoresseguranca` | Lista todos os indicadores |
+| GET | `/indicadoresseguranca/{id}` | Retorna um indicador específico |
+| POST | `/indicadoresseguranca` | Cria um novo indicador |
+| PUT | `/indicadoresseguranca/{id}` | Atualiza um indicador |
+| DELETE | `/indicadoresseguranca/{id}` | Remove um indicador |
 
 <br>
 
@@ -200,11 +210,11 @@ Gerencia sessões de trabalho monitoradas pelo sistema.
 
 | Método | Endpoint | Descrição |
 |---|---|---|
-| GET | `/sessoes` | Lista todas as sessões |
-| GET | `/sessoes/{id}` | Busca uma sessão específica |
-| POST | `/sessoes` | Cria uma nova sessão |
-| PUT | `/sessoes/{id}` | Atualiza uma sessão |
-| DELETE | `/sessoes/{id}` | Remove uma sessão |
+| GET | `/sessaodetrabalho` | Lista todas as sessões |
+| GET | `/sessaodetrabalho/{id}` | Busca uma sessão específica |
+| POST | `/sessaodetrabalho` | Cria uma nova sessão |
+| PUT | `/sessaodetrabalho/{id}` | Atualiza uma sessão |
+| DELETE | `/sessaodetrabalho/{id}` | Remove uma sessão |
 
 <br>
 
@@ -389,15 +399,15 @@ Exemplo de JSON:
 
 ✅ Pré-requisitos
 
-Antes de iniciar o projeto, você precisará ter instalado:
-
->Java 17+
+>Java 17+ (`java -version`)
 ><br>
->Maven
+>Maven — **opcional**, o projeto já traz o Maven Wrapper (`mvnw`)
 ><br>
 >Git
 ><br>
->IntelliJ, Eclipse ou VS Code
+>IntelliJ, Eclipse ou VS Code (opcional)
+
+Não é preciso instalar banco de dados: o H2 roda embutido e grava em arquivo.
 
 ---
 
@@ -411,7 +421,7 @@ Antes de iniciar o projeto, você precisará ter instalado:
 
 ---
 
-▶️ Executando o Projeto
+▶️ Executando o Projeto (porta **8080**)
 <br>
 
 ```
@@ -420,15 +430,27 @@ mvnw.cmd spring-boot:run
 ```
 
 ```
--> Linux / Mac**
+-> Linux / Mac
+chmod +x mvnw      # somente na primeira vez, se der "Permission denied"
 ./mvnw spring-boot:run
 ```
+
+O backend está no ar quando aparecer `Started BackendApplication` no console.
 
 ---
 
 🌐 Acessando a API
-Após iniciar o projeto:
->http://localhost:8080
+Após iniciar o projeto, teste um `GET` no navegador ou no terminal — deve retornar **JSON**:
+>http://localhost:8080/ambientes
+><br>
+>http://localhost:8080/colaboradores
+
+```
+curl http://localhost:8080/colaboradores
+```
+
+🔓 CORS
+Todos os controllers usam `@CrossOrigin`, permitindo que o app Expo (inclusive a versão web, em outra porta) acesse a API.
 
 ---
 
@@ -437,6 +459,9 @@ O projeto utiliza um banco H2 em arquivo, persistido na pasta `data/` do reposit
 > Console H2: http://localhost:8080/h2-console
 ><br>
 > JDBC URL: `jdbc:h2:file:./data/SPI`
+
+⚠️ O H2 em arquivo aceita **uma instância por vez**. Se aparecer `The file is locked` ou `Port 8080 was already in use`, encerre a outra execução do backend (IntelliJ ou outro terminal).
+Os dados persistem em `data/SPI.mv.db` entre reinícios.
 
 ---
 
@@ -460,6 +485,14 @@ src/main
 
  <br>
  
-##  **👨‍💻 Autor**
+## **👨‍💻 Equipe — Grupo SecurIT**
 
-**Grupo SecurIT ©**
+| Nome | RM |
+|---|---|
+| Carlos Augusto da Cruz Possi | 558758 |
+| Ana Luiza Oliveira Dourado | 558793 |
+| Leonardo Tanaka Cortez | 556781 |
+| João Pedro Bernardo Santos da Silva | 557142 |
+| Fabio Henrique Santos Farias | 552453 |
+
+Disciplina: Advanced Programming & Mobile DEV.
