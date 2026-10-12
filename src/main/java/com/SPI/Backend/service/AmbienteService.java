@@ -33,6 +33,7 @@ public class AmbienteService {
         ambienteExistente.setLuminosidade(ambienteAtualizado.getLuminosidade());
         ambienteExistente.setPresencaMaquina(ambienteAtualizado.getPresencaMaquina());
         ambienteExistente.setIndicadorSeguranca(ambienteAtualizado.getIndicadorSeguranca());
+        ambienteExistente.setTitulo(ambienteAtualizado.getTitulo());
 
         return repository.save(ambienteExistente);
     }

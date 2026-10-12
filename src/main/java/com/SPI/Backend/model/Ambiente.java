@@ -13,6 +13,7 @@ public class Ambiente {
 
     @Column(nullable = false)
     private float temperatura;
+    private String titulo;
     private float ruido;
     private float luminosidade;
     private boolean presencaMaquina;
@@ -42,4 +43,6 @@ public class Ambiente {
     public void setPresencaMaquina(boolean presencaMaquina) { this.presencaMaquina = presencaMaquina; }
     public IndicadorSeguranca getIndicadorSeguranca() { return indicadorSeguranca; }
     public void setIndicadorSeguranca(IndicadorSeguranca indicadorSeguranca) { this.indicadorSeguranca = indicadorSeguranca; }
+    public String getTitulo() { return titulo; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
 }
