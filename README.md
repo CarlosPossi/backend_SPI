@@ -14,7 +14,7 @@
 |---|---|
 | Backend (este repositório) | https://github.com/CarlosPossi/backend_SPI |
 | Frontend (app Expo) | https://github.com/CarlosPossi/sistema-SPI-Integracao |
-| Vídeo da Sprint 4 (YouTube, não listado) |  |
+| Vídeo da Sprint 4 (YouTube, não listado) | https://youtu.be/rBudeqUCZzA |
 
 ## 📌 Descrição da API
 
